@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/arrays.rb
+https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/range.rb

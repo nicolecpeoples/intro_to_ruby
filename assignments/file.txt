@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/basic_13.rb
+https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/ruby_puzzles.rb

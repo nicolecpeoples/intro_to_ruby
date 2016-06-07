@@ -12,20 +12,20 @@ class Human
 	def attack(target)
 		if target.class.ancestors.include?(Human)
 			@health -= 10
+			puts "You attacked a human and your health decreased by 10"
 		else
 			@health += 5
 		end
-		puts target.class.ancestors
 		self
 	end
 
 	def displayHealth
-		puts self.health
+		puts "Your Health is #{@health}" 
 		self
 	end
 end
 
-user1 = Human.new
-user2 = Human.new
-puts user1.class.ancestors
-user2.attack(user1).displayHealth
+# user1 = Human.new
+# user2 = Human.new
+# puts user1.class.ancestors
+# user2.attack(user1).displayHealth

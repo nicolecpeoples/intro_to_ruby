@@ -11,10 +11,10 @@ class Human
 
 	def attack(target)
 		if target.class.ancestors.include?(Human)
-			@health -= 10
-			puts "You attacked a human and your health decreased by 10"
+			target.health -= 10
+			true
 		else
-			@health += 5
+			false
 		end
 		self
 	end

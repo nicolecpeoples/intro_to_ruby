@@ -11,6 +11,8 @@ class Wizard < Human
 		self
 	end
 	def fireball(target)
+		attack(target)
 		target.health -= 20
+		self
 	end
 end

@@ -21,50 +21,50 @@
 #MathDojo.new.add(2).add(2,5).subtract(3,2).displaySum
 
 #array addition
-class MathDojo
-	@@sum = 0
-	def add(*args)
-		@total = 0
-		args.each do |x|
-			if x.class ==Array
-				x.each do |y|
-					@total += y
+# class MathDojo
+# 	@@sum = 0
+# 	def add(*args)
+# 		@total = 0
+# 		args.each do |x|
+# 			if x.class ==Array
+# 				x.each do |y|
+# 					@total += y
 
-				end
-			else
-				@total += x
-				puts @total
+# 				end
+# 			else
+# 				@total += x
+# 				puts @total
 				
-			end
+# 			end
 			
-		end
-		@@sum += @total
-		self
-	end
+# 		end
+# 		@@sum += @total
+# 		self
+# 	end
 
-	def subtract(*args)
-		@total = 0
-		args.each do |x|
-			if x.class == Array
-				x.each do |y|
-					@total += y
+# 	def subtract(*args)
+# 		@total = 0
+# 		args.each do |x|
+# 			if x.class == Array
+# 				x.each do |y|
+# 					@total += y
 					
-				end
-			else
-				@total += x
-			end
-		end
-		@@sum -= @total
-		self
-	end
+# 				end
+# 			else
+# 				@total += x
+# 			end
+# 		end
+# 		@@sum -= @total
+# 		self
+# 	end
 
-	def displaySum
-		puts "#{@@sum}"
-	end
-end
+# 	def displaySum
+# 		puts "#{@@sum}"
+# 	end
+# end
 
-# MathDojo.new.add([5,3], 6).subtract(5, [6,7,8]).displaySum
-MathDojo.new.add(1).add([3, 5, 7, 8], [2, 4.3, 1.25]).subtract([2,3], [1.1, 2.3]).displaySum
+# # MathDojo.new.add([5,3], 6).subtract(5, [6,7,8]).displaySum
+# MathDojo.new.add(1).add([3, 5, 7, 8], [2, 4.3, 1.25]).subtract([2,3], [1.1, 2.3]).displaySum
 
 # class Testing
 # @@sum = 0
@@ -83,3 +83,33 @@ MathDojo.new.add(1).add([3, 5, 7, 8], [2, 4.3, 1.25]).subtract([2,3], [1.1, 2.3]
 # end
 
 # Testing.new.paramsTest([5, 7, 9])
+
+#coding dojos way of doing it. Note the accessor and initializing it. Cleans up the code a bit. They also use the ruby method flatten and reduce. 
+class MathDojo
+	attr_accessor :result
+
+	def initialize
+		@result = 0
+	end
+
+	def add(*arg)
+		if arg.class == Array
+			@result += arg.flatten.reduce(:+)
+		else
+			@result += arg
+		end
+		self
+	end
+
+	def subtract(*arg)
+		if arg.class == Array
+			@result -= arg.flatten.reduce(:+)
+		else
+			@result -= arg
+		end
+		self
+	end
+end
+
+puts MathDojo.new.add(2).add(2, 5).subtract(3, 2).result
+puts MathDojo.new.add(1).add([3, 5, 7, 8], [2, 4.3, 1.25]).subtract([2,3], [1.1, 2.3]).result

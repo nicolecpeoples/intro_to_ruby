@@ -1,1 +1,0 @@
-https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/names.rb

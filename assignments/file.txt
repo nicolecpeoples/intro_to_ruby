@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/range.rb
+https://github.com/nicolecpeoples/intro_to_ruby/blob/master/assignments/hashes.rb

@@ -7,15 +7,12 @@ class BankAccount
 		attr_accessor :account_counter
 	end
 
-	def initialize(first_name, last_name, checking_desposit, savings_deposit)
-		@first_name = first_name
-		@last_name = last_name
-		@checking_balance = checking_desposit
-		@savings_balance = savings_deposit
+	def initialize
+		@checking_balance = 2000
+		@savings_balance = 5000
 		@interest_rate = 0.05
 		self.class.account_counter +=1
-		puts "Thank you for opening a bank account with us!"
-
+		
 	end 
 
 	def displayAccountNumber
@@ -38,7 +35,7 @@ class BankAccount
 			if val < @savings_balance
 				@savings_balance -= val
 			else
-				puts "I'm sorry you only have $#{@savings_balance} left in your account and you tried to withdraw #{val}, please withdraw less"
+				return "Sorry your don't have enough money to withdraw in this account"
 			end
 
 		else
@@ -46,36 +43,34 @@ class BankAccount
 				@checking_balance -= val
 
 			else
-				puts "I'm sorry you only have $#{@checking_balance} left in your account and you tried to withdraw #{val}, please withdraw less"
+				return "Sorry your don't have enough money to withdraw in this account"
 			end
 		end
 
-		self
 	end
 
 	def checkingBalance
-		puts "Checking Balance: #{@checking_balance}"
-		self
+		return "Checking Balance: #{@checking_balance}"
+		
 	end
 
 	def savingsBalance
-		puts "Savings Balance: #{@savings_balance}"
-		self
+		return "Savings Balance: #{@savings_balance}"
+		
 	end
 
-	def totalMoney
-		puts "Checking Balance: #{@checking_balance + (@checking_balance * @interest_rate)}"
-		puts "Savings Balance: #{@savings_balance + (@savings_balance * @interest_rate)}"
-		puts "Total Balance: #{(@checking_balance + @savings_balance +(@savings_balance + @checking_balance * @interest_rate))}"
+	def displayTotalBalance
+		puts "Total Balance: #{((@checking_balance + @savings_balance) * @interest_rate) + (@checking_balance + @savings_balance) }"
+		(@checking_balance + @savings_balance) + ((@checking_balance+@savings_balance)) * @interest_rate
 		
-		self
+		
 	end
 
 	def accountInformation 
 		puts "Account Number: #{@account_number}"
 		puts "Checking Balance: #{@checking_balance + (@checking_balance * @interest_rate)}"
 		puts "Savings Balance: #{@savings_balance + (@savings_balance * @interest_rate)}"
-		puts "Total Balance: #{(@checking_balance + @savings_balance +(@savings_balance + @checking_balance * @interest_rate))}"
+		puts "Total Balance: #{(@checking_balance + @savings_balance) * @interest_rate}"
 		puts "Current Interest: #{@interest_rate}%"
 		self
 	end
@@ -92,11 +87,11 @@ class BankAccount
 
 end
 
-customer1 = BankAccount.new("Nicole", "Peoples", 40, 80)
-customer1.withdrawal(30, "savings")
-customer1.withdrawal(20, "checking")
-# customer1.checkingWithdrawal(30).accountInformation
-customer1.accountInformation
-customer2 = BankAccount.new("Cassi", "Gallagher", 30, 150)
-customer2.accountInformation
-customer2.numAccounts
+# customer1 = BankAccount.new("Nicole", "Peoples", 40, 80)
+# customer1.withdrawal(30, "savings")
+# customer1.withdrawal(20, "checking")
+# # customer1.checkingWithdrawal(30).accountInformation
+# customer1.accountInformation
+# customer2 = BankAccount.new("Cassi", "Gallagher", 30, 150)
+# customer2.accountInformation
+# customer2.numAccounts

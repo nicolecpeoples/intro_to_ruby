@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/tree/master/oop/assignments/Human
+https://github.com/nicolecpeoples/intro_to_ruby/tree/master/oop/assignments/Project

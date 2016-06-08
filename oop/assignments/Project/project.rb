@@ -1,10 +1,10 @@
 class Project
-	attr_accessor :name, :description, :team_member
-	def initialize(name, description)
-		@name = name
-		@description = description
+	attr_accessor :name, :description
 
-	end
+	def initialize 
+	    @name = ""
+	    @description = ""
+	  end
 
 	def nameOfProject
 		puts "Name: #{@name}"
@@ -15,9 +15,6 @@ class Project
 		
 	end
 
-	def add_to_team(member_name)
-		@team_member = member_name
-	end
 end
 
 # class Project

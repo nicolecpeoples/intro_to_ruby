@@ -6,7 +6,6 @@ class Human
 		@intelligence = 3
 		@stealth = 3
 		@health = 100
-		puts "You have initailized a human!"
 	end
 
 	def attack(target)
@@ -16,12 +15,12 @@ class Human
 		else
 			false
 		end
-		self
+		
 	end
 
 	def displayHealth
 		puts "Your Health is #{@health}" 
-		self
+		
 	end
 end
 

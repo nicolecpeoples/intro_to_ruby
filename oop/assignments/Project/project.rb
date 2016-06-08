@@ -1,22 +1,36 @@
 class Project
-
+	attr_accessor :name, :description, :team_member
 	def initialize(name, description)
-		@project_name = name
-		@project_description = description
-		puts "I initailized a new project!"
+		@name = name
+		@description = description
+
 	end
 
-	def name 
-		puts "Name: #{@project_name}"
+	def nameOfProject
+		puts "Name: #{@name}"
 	end 
 
 	def elevator_pitch
-		puts "Name: #{@project_name}"
-		puts "Description: #{@project_description}"
-		self
+		"#{@name}, #{@description}"
+		
+	end
+
+	def add_to_team(member_name)
+		@team_member = member_name
 	end
 end
 
-project1 = Project.new("ruby", "learning how to implement classes and stuff")
-project1.name
-project1.elevator_pitch
+# class Project
+#   attr_accessor :name, :description
+#   def initialize name, description
+#     @name = name
+#     @description = description
+#   end
+
+#   def elevator_pitch
+#     "#{@name}, #{@description}"
+#   end
+# end
+# project1 = Project.new("ruby", "learning how to implement classes and stuff")
+# project1.name
+# project1.elevator_pitch

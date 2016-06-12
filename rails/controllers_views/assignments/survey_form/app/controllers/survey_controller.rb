@@ -1,19 +1,18 @@
 class SurveyController < ApplicationController
-	@@counter = 0;
+
   def index
   	@locations = Location.all
-  	@languages = Language.all
-
+ 	@languages = Language.all
+  	if !session[:counter]
+  		session[:counter] = 0
+  	end
   end
 
   def create
-  	@@counter +=1
-  	@times_counter = @@counter
-  	session[:name] = params[:name]
-  	session[:location] = params[:location]
-  	session[:language] = params[:language]
-  	session[:comment] = params[:comment]
-  	flash[:success] = "Thanks for submitting this form! You have submitted this form #{@times_counter} times now!"
+  	session[:counter] = session[:counter ] +1
+  	session[:result] = params[:survey]
+
+  	flash[:success] = "Thanks for submitting this form! You have submitted this form #{session[:counter]} times now!"
 	  	# @user = User.create( survey_params)
 	  	puts "this is where my name info should be"
 	  	redirect_to '/survey/show'
@@ -22,11 +21,8 @@ class SurveyController < ApplicationController
   end
 
   def show
-  	@current_user = session[:name]
-  	@location = session[:location]
-  	@language = session[:language]
-  	@comment = session[:comment]
-
+  	@success_message = flash[:success]
+  	@result = session[:result]
 
   end
 

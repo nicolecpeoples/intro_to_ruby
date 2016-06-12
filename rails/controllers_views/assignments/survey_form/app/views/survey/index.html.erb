@@ -16,22 +16,22 @@
     	<div id="form-wrap">
     		<form action="/surveys/" method="post">
     			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-    			<p><label for="name"> Name: </label><input type="text" name="name"> </p>
+    			<p><label for="name"> Name: </label><input type="text" name="survey[name]"> </p>
     			<p> <label for="location"> Location: </label>
-    			<select name="location">
+    			<select name="survey[location]">
     				<% @locations.each do |location| %>
     					<option value="<%= location.location %>"><%= location.location %></option>
     				<% end %>
     				</select>
     			 </p>
     			 <p> <label for="language"> Language: </label>
-    			 <select name="language">
+    			 <select name="survey[language]">
     				<% @languages.each do |language| %>
     					<option value="<%= language.language %>"><%= language.language %></option>
     				<% end %>
     				</select>
     			 </p>
-    			 <p><label for="comment"> Comment: </label><textarea name="comment"></textarea> </p>
+    			 <p><label for="comment"> Comment: </label><textarea name="survey[comment]"></textarea> </p>
     			 <input type="submit" value="submit">
     		</form>
 

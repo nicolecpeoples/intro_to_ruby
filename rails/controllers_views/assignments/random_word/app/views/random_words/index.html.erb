@@ -1,0 +1,14 @@
+<h1>Random Word Generator</h1>
+
+<div class="random-wrap">
+<p> Random Word (attempt #<%= session[:counter] %>)
+<p class="rand-word">
+		<%= session[:rand_word] %>
+	</p>
+<form action="/random_words/" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="submit" name="submit" value="Generate">
+</form>
+
+<%= link_to 'Reset', '/random_words/reset' %>
+</div>

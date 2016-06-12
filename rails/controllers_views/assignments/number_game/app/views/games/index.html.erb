@@ -1,0 +1,17 @@
+<h1>Welcome to the Great Number Game!</h1>
+<p> I am thinking of a number between 1 and 100 <br/> Take a guess!</p>
+
+ <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+   <% if flash[:success] %>
+    <div class="success"><%= flash[:success] %></div>
+  <% end %>
+
+<form action="/games/" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<input type="text" name="guess"><br/>
+	<input type="submit" name="submit" value="Guess!">
+</form>
+
+<%= link_to 'Play Again!', '/games/play_again' %>

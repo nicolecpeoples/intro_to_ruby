@@ -1,0 +1,41 @@
+rails g model Dojo name:string city:string state:string
+rake db:migrate
+rails g model Ninja first_name:string last_name:string dojo:references
+rake db:migrate 
+
+added hirb gem in gemfile
+bundle install
+
+class Dojo < ActiveRecord::Base
+	has_many :ninjas
+end
+
+Dojo.create(name: "Coding Dojo Silicon Valley", city: "Mountain View", state: "CA")
+Dojo.create(name: "CodingDojo Seattle", city: "Seattle", state: "WA")
+ Dojo.create(name: "CodingDojo New York", city: "New York", state: "NY")
+
+ Dojo.destroy_all => deletes all records
+
+ dojo1 = Dojo.new(name: "CodingDojo Silicon Valley", city: "Mountain View", state: "CA")
+
+ dojo1.valid? => true
+ dojo1.save
+
+ #validity testing
+ dojo3 = Dojo.new(name: "CodingDojo Dallas", city: "Austin", state: "T")
+ dojo3.valid? => false
+ dojo3.save => rollback
+ dojo3.errors.full_messages
+
+ ["State is the wrong length (should be 2 characters)"] 
+
+
+#create a ninja
+
+Dojo.find(4).ninjas.create(first_name: "nicole", last_name: "peoples")
+
+Ninja.all
+| 1  | nicole     | peoples   | 4       | 2016-06-09 19:43:37 UTC | 2016-06-09 19:43:37 UTC |
+
+#get all ninjas from single dojo
+Dojo.find(5).ninjas

@@ -1,0 +1,2 @@
+#query for the house of the first character 
+House.first.characters.first.house

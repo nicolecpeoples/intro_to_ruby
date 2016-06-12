@@ -1,0 +1,43 @@
+RESTful Routes
+Now there are many ways you could have named the URL and which controller/method you would have in your MVC framework. For example, to display the first page (where it displays all the products) one developer could have that page be render when the user types "localhost/products_all' or someone else could have the URL be 'localhost/product/show_all' or 'localhost/products/all'.  Now, since most web applications are ready to provide an interface where the user can create, delete, update, or retrieve particular information, you could understand how confusing it could be when different developers all use different standards for naming the URL as well as the method name that would handle different URL structures. For example, someone could have index method handle that request, whereas someone else had the show_all or showall method handle that HTTP request. To avoid some confusions and to introduce some standards into practice, someone wrote a paper and introduced a rule called RESTful. This guy (who also wrote a thesis about this) claimed the following:
+
+All CRUD applications can really be broken down into 7 unique actions. For example, let's say that we want to create a web application that allows us to create/update/edit/delete products. The web application needs to provide the following 7 pages/features.
+A page that displays all the products.
+A page that displays a specific product information
+A page that allows the user to add a new product
+A page that allows the user to edit existing product information
+A URL that processes the information submitted in step 3.
+A URL that processes the information submitted in step 4.
+A URL that allows a product to be deleted (often the link is provided on the page outlined in step 4).
+Rules
+The guy added more rules and gave each of the pages a unique URL and decided which controller and which method should handle each URL request. This is what the guy proposed.
+
+Description	URL	Controller/Method  	HTTP Verb
+A page that displays all the products.	/products/	products/index	GET
+A page that displays information for the product with an id of 2	/products/2	products/show	GET
+A page that allows the user to add a new product	/products/new	products/new	GET
+A page that allows the user to edit existing product information	/products/2/edit	products/edit	GET
+A URL that processes the information submitted by the new method; in other words to create a new product.	/products/	products/create	POST
+A URL that processes the information submitted by the edit method; in other words to update a particular product's information.	/products/2	products/update	POST/PUT
+A URL that allows a product to be deleted	/products/2	products/destroy	POST/DELETE
+Most Important Routes
+In the routes.rb (in the config folder), you can specify different rules to direct different HTTP request to appropriate controller/method. If you're going to follow the RESTful routes/rules, you could simply put something like below:
+
+resources :products
+This will allow all the 7 URL requests for /products to work and navigates different URL request to appropriate methods in the products controller. If you want to create non-RESTful routes, you can also do something like this:
+
+get '/products/' => 'products#index'
+get '/products/:id' => 'products#show'
+#when the user wants to post information to /products/:id (e.g. products/1) have the products controller and edit method handle that request
+post '/products/:id' => 'products#edit'
+Advanced Routing Rules (not important)
+There are many other fancy ways of putting together routing rules but for now, please focus on what we have outlined above. If you want to do more fancy routing, you can go through the information below:
+
+Non-Resourceful Routes (see examples below)
+match 'photos/show' => 'photos#show', :via=> [:get, :post]
+match ':controller/:action/:id/:user_id'
+match ':controller/:action/:id/with_user/:user_id'
+match 'exit'=> 'sessions#destroy', :as=> :logout (creates logout_url/logout_path)
+match "/stories"=> redirect("/posts")
+match "/stories/:name"=> redirect("/posts/%{name}")
+root :to=> 'pages#main'

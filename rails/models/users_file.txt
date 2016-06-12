@@ -1,0 +1,35 @@
+rails new user_login_project
+rails g model User first_name:string last_name:string, email_address:string age:integer
+User.create(first_name: "Nicole", last_name: "Peoples", email_address: "nicole@nicole.com", age: 36)
+
+validations
+class User < ActiveRecord::Base
+	EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
+
+	validates :first_name, :last_name, presence: true, length: {in: 2..30 }
+	validates :age, presence:true
+	validates :email_address, presence:true, uniqueness: { case_sensitive: false }, format: { with: EMAIL_REGEX }
+	validates_numericality_of :age, greater_than: 10, less_than: 150
+end
+
+
+to test for errors
+
+caitlin = User.new
+caitlin.valid?  => false
+caitlin.save? => rollback transaction
+caitlin.errors.full_messages => ["First name can't be blank", "First name is too short (minimum is 2 characters)", "Last name can't be blank", "Last name is too short (minimum is 2 characters)", "Age can't be blank", "Age is not a number", "Email address can't be blank", "Email address is invalid"] 
+
+retrieve user info
+User.all   => all users
+User.first => first user
+User.last  => last user
+User.order(:first_name) => order desc by first name
+  or User.order(:first_name  :desc)
+  ASC User.order(:first_name :asc)
+
+
+User.find(4).update(last_name: "Coolest")
+User.find(4).destroy
+
+Dojo.find(4).ninjas.order(first_name: :desc)

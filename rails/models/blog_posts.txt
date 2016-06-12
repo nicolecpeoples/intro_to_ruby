@@ -1,0 +1,27 @@
+#creating a blog
+Blog.create(name: "Blog the Fourth", description: "The fourth blog for everyone to see")
+
+#creating a blog post 
+Blog.find(3).posts.create(title: "I am a blog post for blog #3", content: "Here is is some content for the blog post")
+
+#creating a message on a post
+message1 = Post.find(1).messages.create(author: "Neeeecole", message: "I am a long message that I'm trying out")
+
+#all posts for the first blog
+Blog.find(1).posts
+
+#find all messages in order of author desc
+Post.find(1).messages.order(author: :desc)
+
+#updating the first posts title
+Post.find(1).update(title: "I am changing the little title")
+
+#delete all messages from post 3
+Post.find(3).messages.destroy_all
+
+#destroy all dependents
+
+has_many :messages, :dependent => :destroy
+
+#messages with an id less than 5
+Message.where("id < 5")

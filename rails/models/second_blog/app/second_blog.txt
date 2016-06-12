@@ -1,0 +1,4 @@
+
+
+#create blog owner
+Owner.create(user: User.find(1), blog: Blog.find(1))

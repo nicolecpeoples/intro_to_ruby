@@ -1,0 +1,38 @@
+#create new blog/owner relationship
+Owner.create(user: User.find(1), blog: Blog.find(1))
+
+#2nd user owns 4th blog
+Owner.create(user: User.find(2), blog: Blog.find(4))
+
+#assign last user to blog  #5
+Owner.create(user: User.last, blog: Blog.find(5))
+
+#have first user create 3 posts for the blog with an id of 2
+User.first.posts.create(blog: Blog.find(2), title: "I am the first post", content: " I am some content")
+
+#Have the second user create 5 posts for the last Blog.
+User.find(2).posts.create(blog: Blog.last, title: "I am a test post", content: "what kind of content shall i put in here")
+
+#Have the 3rd user create several posts for different blogs.
+#Have the 3rd user create 2 messages for the first post created and 3 messages for the second post created
+#Have the 3rd user create 3 messages for the last post you created.
+
+Post.last.messages.create(user: User.find(3), author: "Luke's father", message: "I am testing to see if this works in messages")
+
+#Change the owner of the 2nd post to the last user.
+#Change the 2nd post's content to be something else.
+#Retrieve all blogs owned by the 3rd user (make this work by simply doing: User.find(3).blogs).
+
+#Retrieve all posts that were created by the 3rd user
+User.find(3).posts
+
+#Retrieve all messages left by the 3rd user
+User.find(3).messages
+
+#Retrieve all posts associated with the first blog as well as who left these posts.  
+
+#Retrieve all messages associated with the first blog along with all the user information of those who left the messages.
+
+#Grab all user information of those that own the first blog (make this work by allowing Blog.first.owners to work).
+
+#Change it so that the first blog is no longer owned by the first user.

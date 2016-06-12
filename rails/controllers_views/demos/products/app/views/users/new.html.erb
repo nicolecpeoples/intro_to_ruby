@@ -1,18 +1,6 @@
-<h1>Users#index</h1>
-
-<table>
-<%  @users.each do |user|%>
-	<tr>
-	<td><%= user.first_name %> <%= user.last_name %></td>
-	</tr>
-<% end %>
-</table>
-
-
 <form action='/users/' method='post'>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <label for="first_name"> First Name: </label><input type='text' name='first_name' /><br/>
   <label for="last_name"> Last Name: </label><input type='text' name='last_name' /><br/>
   <input type='submit' value='Create' />
 </form>
-

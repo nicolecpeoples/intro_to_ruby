@@ -1,8 +1,28 @@
 class UsersController < ApplicationController
   def index
   	@users = User.all
+  	
+  end
+
+  def create
+
+  	@user = User.create(first_name: params[:first_name], last_name: params[:last_name])
+  	redirect_to '/users/index'
+  end
+
+  def show
+  	@user = User.find(params[:id])
+  end
+
+  def edit
+  	@user = User.find(params[:id])
+  end
+
+  def total
+  	render :text => User.count
   end
 end
+
 
 # class UsersController < ApplicationController
 #   def index

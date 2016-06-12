@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   get 'users/index'
 
+  get 'users/total'
+
+  get 'users/new'
+
+  get 'users/:id', to: 'users#show'
+
+  get 'users/:id/edit', to: 'users#edit'
+
   get 'products/index'
 
   get 'products/new'
@@ -8,7 +16,12 @@ Rails.application.routes.draw do
   get 'products/test_folder'
 
   post "products" => 'products#create'
-   #resources :products
+  post "users" => 'users#create'
+  post "users/new" => 'users#create'
+   resources :products
+   resources :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

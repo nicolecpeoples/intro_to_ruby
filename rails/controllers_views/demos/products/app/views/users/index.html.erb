@@ -11,8 +11,8 @@
 
 <form action='/users/' method='post'>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <label for="first_name"> First Name: </label><input type='text' name='first_name' /><br/>
-  <label for="last_name"> Last Name: </label><input type='text' name='last_name' /><br/>
+  <label for="first_name"> First Name: </label><input type='text' name='user[first_name]' /><br/>
+  <label for="last_name"> Last Name: </label><input type='text' name='user[last_name]' /><br/>
   <input type='submit' value='Create' />
 </form>
 

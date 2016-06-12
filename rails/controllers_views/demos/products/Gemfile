@@ -43,3 +43,6 @@ gem 'hirb'
 
 #for debugging
 gem 'rails-footnotes', '>=4.0.0', '< 5'
+
+#form help
+gem 'simple_form'

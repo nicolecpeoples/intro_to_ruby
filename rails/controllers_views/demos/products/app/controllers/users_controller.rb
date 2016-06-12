@@ -4,11 +4,16 @@ class UsersController < ApplicationController
   	
   end
 
+  def new
+  	@user = User.new
+  end
   def create
 
-  	@user = User.create(first_name: params[:first_name], last_name: params[:last_name])
-  	redirect_to '/users/index'
+  	# @user = User.create(first_name: params[:first_name], last_name: params[:last_name])
+  	@user = User.create ( user_params )
+  	redirect_to users_path
   end
+
 
   def show
   	@user = User.find(params[:id])
@@ -20,6 +25,11 @@ class UsersController < ApplicationController
 
   def total
   	render :text => User.count
+  end
+
+  private
+  def user_params
+  	params.require(:user).permit(:first_name, :last_name)
   end
 end
 

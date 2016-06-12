@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <style>
+        	.wrap {
+        		border: 2px solid #000;
+        		max-width: 300px;
+        		margin: 0 auto 5px;
+        		padding: 20px;
+        		text-align: center;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="wrap info">
+    		The current time and date:
+    	</div>
+    	<div class="wrap time-display">
+    		<%= @date %><br/>
+    		<%= @time %>
+    	</div>
+    </body>
+</html>

@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
   def create
   	#render :text => "came to Create method"
-
+    
   	@product = Product.create(name: params[:name], description: params[:description])
 
   	puts "\n\n", @product.inspect, "\n\n"

@@ -1,0 +1,31 @@
+
+<div class="">
+	<% flash.each do|key, value| %>
+		<div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
+</div>	
+
+<div class="submitted-info">
+	<h3> Submitted Information </h3>
+	<table>
+		<tr>
+			<td>Name:</td>
+			<td><%= @current_user %></td>
+		<tr>
+		<tr>
+			<td>Dojo Location:</td>
+			<td><%= @location %></td>
+		<tr>
+		<tr>
+			<td>Favorite Language:</td>
+			<td><%= @language %></td>
+		<tr>
+		<tr>
+			<td>Comment:</td>
+			<td><%= @comment %></td>
+		<tr>
+
+	</table>
+
+	<%= link_to 'Go Back', '/' %> 
+</div>

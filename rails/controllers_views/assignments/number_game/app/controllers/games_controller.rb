@@ -25,7 +25,7 @@ class GamesController < ApplicationController
 	  		end
 	  	end
 	  else
-	 	flash[:notice] = "Sorry you've already guessed 5 times. The correct answer was #{session[:random_num]} "
+	 	flash[:notice] = "Sorry you've already guessed 5 times. The correct answer was #{session[:random_num]} <br/> <a href='#{'/games/play_again'}' class='play_again'>Play Again!</a>".html_safe
 	 	
 	  end
 

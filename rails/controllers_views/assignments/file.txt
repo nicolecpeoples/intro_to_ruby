@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/tree/master/rails/controllers_views/assignments/random_word
+https://github.com/nicolecpeoples/intro_to_ruby/tree/master/rails/controllers_views/assignments/number_game

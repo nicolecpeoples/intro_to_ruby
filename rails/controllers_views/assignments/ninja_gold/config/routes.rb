@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'games/index'
-  get 'games/play_again'
-  get 'games'
-  post 'games' => 'games#index'
+  get 'rpg/index'
+  get 'rpg/reset'
+  post 'rpg/farm' => 'rpg#farm'
+  post 'rpg/cave' => 'rpg#cave'
+  post 'rpg/casino' => 'rpg#casino'
+  post 'rpg/house' => 'rpg#house'
 
-  root 'games#index'
-
-  resources :games
+  root 'rpg#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

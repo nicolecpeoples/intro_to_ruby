@@ -7,6 +7,7 @@
 				<th> First Name </th>
 				<th> Last Name </th>
 				<th> Email </th>
+				<th>  </th>
 			</tr>
 		</thead>
 		<tbody>
@@ -15,9 +16,13 @@
 				<td> <%= user.first_name %> </td>
 				<td> <%= user.last_name %> </td>
 				<td> <%= user.email_address %>  </td>
+				<td> <%= link_to 'Show', "/users/#{user.id}" %> | <%= link_to 'Edit', "/users/#{user.id}/edit" %> | <%= link_to "Delete", "/users/#{user.id}", method: :destroy,
+                                  data: { confirm: "You sure?" } %>    </td>
 			</tr>
 			<% end %>
 		</tbody>
 
 	</table>
+
+	<%= link_to 'New User', '/users/new' %>
 </div>

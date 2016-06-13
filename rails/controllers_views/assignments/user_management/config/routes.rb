@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   get 'users' => 'users#index'
   get 'users/index'
+  get 'users/new'
+  get 'users/destroy'
+  get 'users/:id/edit' => 'users#edit'
+  get 'users/:id' => 'users#show' 
 
+  post '/users' => 'users#create'
+  post '/users/:id/edit' => 'users#update'
+  post 'users/:id' => 'users#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

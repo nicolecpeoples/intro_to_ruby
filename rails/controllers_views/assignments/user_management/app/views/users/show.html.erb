@@ -1,0 +1,19 @@
+<div class="container">
+<h1> Showing User </h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<td> First name:</td>
+				<td> Lat Name </td>
+				<td> Email:</td>
+			</tr>
+		</thead>
+
+		<tr>
+			<td> <%=   @user.first_name %></td>
+			<td> <%=   @user.last_name %></td>
+			<td> <%=   @user.email_address %></td>
+		</tr>
+	</table>
+		<%= link_to 'Edit', "/users/#{@user.id}/edit" %> | <%= link_to 'Back', "/users" %> 
+</div>

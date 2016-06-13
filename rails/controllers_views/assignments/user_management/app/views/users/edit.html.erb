@@ -1,0 +1,13 @@
+<div class="container">
+	<h1> Edit User </h1>
+
+	<form action="/users/<%= @user.id %>/edit" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p><label for="user[first_name]"> First Name: </label><input type="text" name="user[first_name]" value="<%= @user.first_name %>"></p>
+		<p><label for="user[last_name]"> Last Name: </label><input type="text" name="user[last_name]" value="<%= @user.last_name %>"></p>
+		<p><label for="user[email_address]"> Email: </label><input type="text" name="user[email_address]" value="<%= @user.email_address %>"></p>
+		<p><label for="user[password]"> Password: </label><input type="password" name="user[password]" value="<%= @user.password %>"></p>
+		<input type="submit" value="Update Info">
+	</form>
+	<%= link_to 'Back', '/users' %>
+</div>

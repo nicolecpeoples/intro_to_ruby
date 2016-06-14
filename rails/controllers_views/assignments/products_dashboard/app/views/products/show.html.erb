@@ -1,0 +1,23 @@
+<div class="container">
+	<h1><%= @product.name %> Page </h1>
+	<table>
+		<thead>
+			<tr>	
+				<th> Name </th>
+				<th> Description </th>
+				<th> Price </th>
+				<th> Category</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=  @product.name %>  </td>
+				<td><%=  @product.description %>  </td>
+				<td><%=  @product.pricing %>  </td>
+				<td><%=  @product.category.name %>  </td>
+			</tr>
+		</tbody>
+	</table>
+	<%= link_to 'Edit', "/products/#{@product.id}/edit" %> | <%= link_to 'Back', "/products" %> 
+
+</div>

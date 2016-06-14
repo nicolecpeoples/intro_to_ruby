@@ -1,0 +1,22 @@
+<div class="container">
+	<h1>Edit Product</h1>
+
+	<form action="/products/<%= @product.id %>/edit" method="post">
+
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+		<p> <label for="product[category_id]"> Category:</label> <select name="product[category_id]" class="select_show">
+				<% @categories.each do |category| %>
+					<option value="<%= category.id %>" <% if @product.category.id == category.id %> selected <% end %> ><%= category.name %></option>
+				<% end %>
+			</select>
+
+				
+		</p>
+		<p><label for="product[name]"> Name: </label><input type="text" name="product[name]" value="<%= @product.name %>"></p>
+		<p><label for="product[description]"> Description: </label><input type="text" name="product[description]" value="<%= @product.description %>"></p>
+		<p><label for="product[pricing]"> Price: </label><input type="text" name="product[pricing]" value="<%= @product.pricing %>"></p>
+		<input type="submit" value="Edit">
+	</form>
+
+	<%= link_to 'Show', "/products/#{@product.id}" %> | <%= link_to 'Back', "/products" %> 
+</div>

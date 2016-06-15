@@ -1,0 +1,22 @@
+<div class="container">
+	<h1>All Comments</h1>
+
+	
+		<table>
+			<thead>
+				<tr> 
+					<td>Comments</td>
+					<td>Products</td>
+				</tr>
+			</thead>
+			<% @comments.each do |comment | %>
+				<tr>
+					<td> <%= comment.comment %> </td>
+					<td> <%= comment.product.name %> </td>
+				</tr>
+				<% end %>
+		</table>
+	
+
+	<%= link_to 'Back', '/products' %>
+</div>

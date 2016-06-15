@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Ruby_Convert a String to a Number - Progzoo_files/analytics.js"></script>
+
+<title>Ruby:Convert a String to a Number - Progzoo</title>
+<meta name="generator" content="MediaWiki 1.25.1">
+<link rel="shortcut icon" href="http://progzoo.net/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://progzoo.net/mw/opensearch_desc.php" title="Progzoo (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://progzoo.net/mw/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number">
+<link rel="alternate" type="application/atom+xml" title="Progzoo Atom feed" href="http://progzoo.net/mw/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./Ruby_Convert a String to a Number - Progzoo_files/load.php">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: progzoo_wiki:resourceloader:filter:minify-css:7:e1ffd603cbaaa5f1a36e0d13fe843535 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: progzoo_wiki:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://progzoo.net/mw/resources/src/mediawiki.action/images/green-checkmark.png?2015-06-26T09:46:40Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: progzoo_wiki:resourceloader:filter:minify-css:7:40ee02c60206c1a3af7f25d35f0a87f4 */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: progzoo_wiki:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Ruby_Convert a String to a Number - Progzoo_files/load(1).php">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: progzoo_wiki:resourceloader:filter:minify-css:7:f40525b1bbb38749f64f0dc5f2dc4c55 */</style>
+<script src="./Ruby_Convert a String to a Number - Progzoo_files/load(2).php"></script><style type="text/css"></style><script src="./Ruby_Convert a String to a Number - Progzoo_files/load(3).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"Ruby","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":110,"wgPageName":"Ruby:Convert_a_String_to_a_Number","wgTitle":"Convert a String to a Number","wgCurRevisionId":1674,"wgRevisionId":1674,"wgArticleId":257,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Ruby:Convert_a_String_to_a_Number","wgRelevantArticleId":257,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: progzoo_wiki:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="./Ruby_Convert a String to a Number - Progzoo_files/load(4).php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/mw/skins/Vector/csshover.min.htc")}</style><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-110 ns-subject page-Ruby_Convert_a_String_to_a_Number skin-vector action-view" cz-shortcut-listen="true">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Ruby:Convert a String to a Number</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Progzoo</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number#mw-head">navigation</a>, 					<a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="guidelist"><div class="fc"><a href="http://progzoo.net/wiki/Ruby:Top_Ten_Tips" title="Ruby:Top Ten Tips">Ruby:Top Ten Tips</a></div><div><a href="http://progzoo.net/wiki/Ruby:Hello_World" title="Ruby:Hello World">Hello World</a></div><div><strong class="selflink">Convert to Number</strong></div><div><a href="http://progzoo.net/wiki/Ruby:Read_a_Text_File" title="Ruby:Read a Text File">Read Text File</a></div><div><a href="http://progzoo.net/wiki/Ruby:Sum_an_Array" title="Ruby:Sum an Array">Sum an Array</a></div><div><a href="http://progzoo.net/wiki/Ruby:Count_0_to_9" title="Ruby:Count 0 to 9">Count 0 to 9</a></div><div><a href="http://progzoo.net/wiki/Ruby:Use_a_Hash_Table" title="Ruby:Use a Hash Table">Hash Table</a></div><div><a href="http://progzoo.net/wiki/Ruby:Regular_Expression" title="Ruby:Regular Expression">Regular Expression</a></div><div><a href="http://progzoo.net/wiki/Ruby:Read_From_a_Database" title="Ruby:Read From a Database">Read Database</a></div><div><a href="http://progzoo.net/wiki/Ruby:Read_XML" title="Ruby:Read XML">Read XML</a></div><div><a href="http://progzoo.net/wiki/Ruby:Define_a_Class" title="Ruby:Define a Class">Define a Class</a></div></div>
+<div class="q" id="q1">
+ <div>
+  <div class="blurb">
+<p>You can use String methods <code>to_i</code> or <code>to_f</code>
+to convert to integers or floating point numbers.
+</p>
+<p>The value "1234" is a string, you need to treat it as a number -
+to add 1, giving 1235.
+</p>
+</div>
+  <div class="usercontrols"><div><div><form method="post" action="http://progzoo.net/r.cgi" enctype="multipart/form-data" name="grb1"><input type="hidden" name="prog" value=""><input type="hidden" name="shell" value=""><input type="hidden" name="imgOut" value=""><input type="hidden" name="width" value=""><input type="hidden" name="height" value=""><input type="hidden" name="frames" value=""><input type="hidden" name="className" value="Demo"><input type="hidden" name="classpath" value=""><input type="hidden" name="switches" value=""><input type="hidden" name="copyFile" value=""><input type="hidden" name="reference" value=""><input type="hidden" name="lang" value="rb"><input type="hidden" name="quest" value="1"><input type="hidden" name="tut" value=""><input type="hidden" name="lstat" value=""><input type="hidden" name="answer" value=""><input type="hidden" name="uid" value=""><input type="hidden" name="title" value=""><input type="hidden" name="debug" value="0"><input type="hidden" name="c" value=""><input type="hidden" name="deftxt" value="
+s = &quot;1234&quot;
+i= s.to_i
+puts i+1
+"><input type="hidden" name=".cgifields" value="whole"></form></div><div><form method="post" action="http://progzoo.net/r.cgi" enctype="multipart/form-data" name="frb1"><input type="hidden" name="shell" value=""><div><input type="button" value=" Run " onclick="return goBaby(1,&#39;rb&#39;)" title="Execute the code. [ctrl-option-R]" accesskey="R"><span style="display:none" id="hiscorerb_1">.</span></div><textarea name="c" rows="10" cols="55" style="width:35.75em" tabindex="1" spellcheck="false">s = "1234"
+i= s.to_i
+puts i+1
+
+</textarea><input type="hidden" name="answer" value=""></form></div><div class="bottomControls"><input type="button" value=" Run " onclick="goBaby(1,&#39;rb&#39;)" title="Execute the code. [ctrl-option-R]" accesskey="R" tabindex="2" name="run2" id="run2.1">
+     [<span onclick="flipSize(&#39;frb1&#39;)" title="Change font size" style="text-decoration:underline;cursor:pointer;">Font</span>] 
+     [<span onclick="resetForm(&#39;rb&#39;,&#39;1&#39;)" style="text-decoration:underline;cursor:pointer;" title="Reset the text box to the original code given with the question">Default</span>] 
+     [<span style="text-decoration:underline;cursor:pointer;" onclick="flipWhole(1,&#39;rb&#39;)" title="Show the whole program">Show</span>]
+     [<span style="text-decoration:underline;cursor:pointer;" onclick="resizeTA(1,&#39;rb&#39;)" title="Resize text area">Resize</span>]
+     [<span style="text-decoration:underline;cursor:pointer;" onclick="openHistory(1,&#39;rb&#39;)" title="Show Previous Attempts">History</span>]
+     [<span style="text-decoration:underline;cursor:pointer;" onclick="openProfile(1,&#39;rb&#39;)" title="Show Question Profile">Profile</span>]
+  </div></div>
+</div>
+ </div>
+ <pre id="sw1.rb" style="display:none;" class="sw">test text</pre>
+ <div class="tgtC">
+  <div id="tgt_rb1" class="tgt" style="display:none;">
+   <div id="tgtmsg_rb1" style="color:red">&nbsp;</div>
+   <div id="tgtque_rb1" style="margin-left:2ex">&nbsp;</div>
+   <div id="tgtres_rb1" style="margin-left:2ex">&nbsp;</div>
+   <div id="tgtend_rb1">&nbsp;</div>
+  </div>
+ </div>
+</div>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.016 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 20/1000000
+Preprocessor generated node count: 86/1000000
+Post‐expand include size: 610/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.329      1 - -total
+100.00%    4.329      1 - Template:TopTenTips
+-->
+
+<!-- Saved in parser cache with key progzoo_wiki:pcache:idhash:257-0!*!0!*!*!*!* and timestamp 20160614214539 and revision id 1674
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;oldid=1674">http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;oldid=1674</a>"					</div>
+													<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="http://progzoo.net/mw/index.php?title=Special:UserLogin&amp;returnto=Ruby%3AConvert+a+String+to+a+Number&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="http://progzoo.net/mw/index.php?title=Special:UserLogin&amp;returnto=Ruby%3AConvert+a+String+to+a+Number" title="You are encouraged to log in; however, it is not mandatory [ctrl-option-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															
+															
+													<li id="n-Java"><a href="http://progzoo.net/wiki/Convert_a_String_to_a_Number">Java</a></li><li id="n-C.23"><a href="http://progzoo.net/wiki/C%23:Convert_a_String_to_a_Number">C#</a></li><li id="n-C.2B.2B"><a href="http://progzoo.net/wiki/C%2B%2B:Convert_a_String_to_a_Number">C++</a></li><li id="n-Perl"><a href="http://progzoo.net/wiki/Perl:Convert_a_String_to_a_Number">Perl</a></li><li id="n-PHP"><a href="http://progzoo.net/wiki/PHP:Convert_a_String_to_a_Number">PHP</a></li><li id="n-Python"><a href="http://progzoo.net/wiki/Python:Convert_a_String_to_a_Number">Python</a></li><li id="n-Ruby"><a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number">Ruby</a></li><li id="n-VB"><a href="http://progzoo.net/wiki/VB:Convert_a_String_to_a_Number">VB</a></li><li id="n-Scala"><a href="http://progzoo.net/wiki/scala:Convert_a_String_to_a_Number">Scala</a></li></ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															<p style="font-size: 0.7em; "><b>ProgZoo Sections</b></p><li id="n-mainpage"><a href="http://progzoo.net/wiki/ProgZoo" title="Visit the main page [ctrl-option-z]" accesskey="z">ProgZoo</a></li><li id="n-Tutorials"><a href="http://progzoo.net/wiki/Tutorials">Tutorials</a></li><li id="n-How-to..."><a href="http://progzoo.net/wiki/Guides">How to...</a></li><li id="n-Assessments"><a href="http://progzoo.net/wiki/Assessments">Assessments</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li><p style="font-size: 0.7em; "><b>Toolbox</b></p><li id="t-whatlinkshere"><a href="http://progzoo.net/wiki/Special:WhatLinksHere/Ruby:Convert_a_String_to_a_Number" title="A list of all wiki pages that link here [ctrl-option-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="http://progzoo.net/wiki/Special:RecentChangesLinked/Ruby:Convert_a_String_to_a_Number" title="Recent changes in pages linked from this page [ctrl-option-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="http://progzoo.net/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-option-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-option-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;oldid=1674" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;action=info" title="More information about this page">Page information</a></li><p style="font-size: 0.7em; "><b>Other</b></p><li id="n-To-do-list"><a href="http://progzoo.net/wiki/TODO">To do list</a></li><li id="n-recentchanges"><a href="http://progzoo.net/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-option-r]" accesskey="r">Recent changes</a></li><li id="n-Progress"><a href="http://progzoo.net/manage.pl" rel="nofollow">Progress</a></li><li id="n-randompage"><a href="http://progzoo.net/wiki/Special:Random" title="Load a random page [ctrl-option-x]" accesskey="x">Random page</a></li></ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number">Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;action=edit" title="This page is protected.
+You can view its source [ctrl-option-e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;action=history" title="Past revisions of this page [ctrl-option-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label" tabindex="0"><span>More</span><a href="http://progzoo.net/wiki/Ruby:Convert_a_String_to_a_Number#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															<p style="font-size: 0.7em; "><b>ProgZoo Sections</b></p><li id="n-mainpage"><a href="http://progzoo.net/wiki/ProgZoo" title="Visit the main page [ctrl-option-z]" accesskey="z">ProgZoo</a></li><li id="n-Tutorials"><a href="http://progzoo.net/wiki/Tutorials">Tutorials</a></li><li id="n-How-to..."><a href="http://progzoo.net/wiki/Guides">How to...</a></li><li id="n-Assessments"><a href="http://progzoo.net/wiki/Assessments">Assessments</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li><p style="font-size: 0.7em; "><b>Toolbox</b></p><li id="t-whatlinkshere"><a href="http://progzoo.net/wiki/Special:WhatLinksHere/Ruby:Convert_a_String_to_a_Number" title="A list of all wiki pages that link here [ctrl-option-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="http://progzoo.net/wiki/Special:RecentChangesLinked/Ruby:Convert_a_String_to_a_Number" title="Recent changes in pages linked from this page [ctrl-option-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="http://progzoo.net/wiki/Special:SpecialPages" title="A list of all special pages [ctrl-option-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;printable=yes" rel="alternate" title="Printable version of this page [ctrl-option-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;oldid=1674" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="http://progzoo.net/mw/index.php?title=Ruby:Convert_a_String_to_a_Number&amp;action=info" title="More information about this page">Page information</a></li><p style="font-size: 0.7em; "><b>Other</b></p><li id="n-To-do-list"><a href="http://progzoo.net/wiki/TODO">To do list</a></li><li id="n-recentchanges"><a href="http://progzoo.net/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [ctrl-option-r]" accesskey="r">Recent changes</a></li><li id="n-Progress"><a href="http://progzoo.net/manage.pl" rel="nofollow">Progress</a></li><li id="n-randompage"><a href="http://progzoo.net/wiki/Special:Random" title="Load a random page [ctrl-option-x]" accesskey="x">Random page</a></li></ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="http://progzoo.net/mw/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Progzoo [ctrl-option-f]" accesskey="f" id="searchInput" tabindex="3" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://progzoo.net/wiki/ProgZoo" title="Visit the main page"></a></div>
+						
+			<div class="portal" role="navigation" id="p-Progzoo_Sections" aria-labelledby="p-Progzoo_Sections-label">
+			<h3 id="p-Progzoo_Sections-label">Progzoo Sections</h3>
+
+			<div class="body">
+									<ul>
+													
+													
+													
+													
+													
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Other" aria-labelledby="p-Other-label">
+			<h3 id="p-Other-label">Other</h3>
+
+			<div class="body">
+									<ul>
+													
+													
+													
+													
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Toolbox</h3>
+
+			<div class="body">
+									<ul>
+													
+													
+													
+													
+													
+													
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 31 December 2007, at 21:19.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://progzoo.net/wiki/Progzoo:Privacy_policy" title="Progzoo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://progzoo.net/wiki/Progzoo:About" title="Progzoo:About">About Progzoo</a></li>
+											<li id="footer-places-disclaimer"><a href="http://progzoo.net/wiki/Progzoo:General_disclaimer" title="Progzoo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="./Ruby_Convert a String to a Number - Progzoo_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/mw/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /mw/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://progzoo.net/mw/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="./Ruby_Convert a String to a Number - Progzoo_files/load(5).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":113});
+}</script>
+	
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div><script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script></body></html>

@@ -20,4 +20,18 @@
 	</table>
 	<%= link_to 'Edit', "/products/#{@product.id}/edit" %> | <%= link_to 'Back', "/products" %> 
 
+	<form action="/comments" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+		<input type="hidden" name="comment[product]" value="<%=  @product.id %>"
+		<label for="comment[comment]"> Comment: </label> 
+		<textarea name="comment[comment]"></textarea>
+		<input type="submit" value="Submit">
+	</form>
+
+
+	<% @comments.each do |comment| %>
+		<% if @product.id == comment.product_id %>
+			<p> <%= comment.comment %>   - <%= comment.created_at.strftime("%Y") %> </p>
+		<% end %>
+	<% end %>
 </div>

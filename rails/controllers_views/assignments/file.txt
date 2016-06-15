@@ -1,1 +1,1 @@
-https://github.com/nicolecpeoples/intro_to_ruby/tree/master/rails/controllers_views/assignments/user_management
+https://github.com/nicolecpeoples/intro_to_ruby/tree/master/rails/controllers_views/assignments/products_dashboard

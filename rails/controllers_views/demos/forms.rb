@@ -63,3 +63,5 @@ generates this HTML
 #deleting
 <a href= "blogs/<%= blog.id %>" data-method='delete'>delete this blog!</a>
 
+ #turn off default console messages
+  config.log_level = :warn

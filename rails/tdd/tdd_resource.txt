@@ -1,0 +1,9 @@
+Additional Resources
+These are optional sites you can go to learn more about Ruby/Rspec/TDD:
+
+A good overview of TDD - http://en.wikipedia.org/wiki/Test-driven_development - 
+Awesome resource to learn more about TDD and Ruby - http://www.rubykoans.com/
+RSpec best practices - http://www.slideshare.net/andrea.reginato/rspec-2-best-practices
+How to generate HTML report from Rspec - http://stackoverflow.com/questions/4496664/generate-html-file-from-rspec. Don't spend too much time in generating HTML reports. For now, the default RSpec report is all you need to get started with TDD.
+Add colors to your Command Line (Windows) - http://softkube.com/blog/ansi-command-line-colors-under-windows
+Another RSpec best practices and tips - http://eggsonbread.com/2010/03/28/my-rspec-best-practices-and-tips/

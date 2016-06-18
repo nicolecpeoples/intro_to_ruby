@@ -1,0 +1,34 @@
+<% content_for :left_column do %>
+  <h2>List of Users</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Dojo Location</td>
+        <td>Favorite Language</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>Seattle</td>
+        <td>Ruby</td>
+      </tr>
+      <tr>
+        <td>Jane Doe</td>
+        <td>Seattle</td>
+        <td>Javascript</td>
+      </tr>
+      <tr>
+        <td>John Jane</td>
+        <td>Seattle</td>
+        <td>PHP</td>
+      </tr>            
+    </tbody>
+  </table>
+<% end %>
+<% content_for :right_column do %>
+  <h2>Create New User</h2>
+  <button><a href="/users/new">Click here to go to the form</a></button>  
+  <button><a href="/posts/index">Go to posts</a></button>
+<% end %>

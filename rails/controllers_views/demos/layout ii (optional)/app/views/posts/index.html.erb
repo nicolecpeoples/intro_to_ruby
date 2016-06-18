@@ -1,0 +1,29 @@
+<% content_for :left_column do %>
+  <h2>List of Posts</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Content</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kobe Bryant is BACK</td>
+        <td>Kobe will carry the Lakers</td>
+      </tr>
+      <tr>
+        <td>Jeremy Lin comes off the bench</td>
+        <td>Jeremy Lin focuses on his role for the Lakers</td>
+      </tr>          
+    </tbody>
+  </table>
+<% end %>
+<% content_for :middle_column do %>
+  <h2>Create New Post</h2>
+  <button><a href="/posts/new">Click here to go to the form</a></button>
+<% end %>
+<% content_for :right_column do %>
+  <h2>Go to Users Page</h2>
+  <button><a href="/users/index">Go to users</a></button>
+<% end %>

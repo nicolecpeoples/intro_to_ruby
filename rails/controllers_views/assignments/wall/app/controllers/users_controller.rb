@@ -10,14 +10,15 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.create(user_params)
-    if @user.save
-      session[:username] = @user.username
-      session[:id] = @user.id
+    #changed user to local variable (not needed on view)
+  	user = User.create(user_params)
+    if user.save
+      session[:username] = user.username
+      session[:id] = user.id
       redirect_to '/posts'
     else
-
-      flash[:notice] = "Form is invalid"
+      #changed flash message to directly reflect user save errors
+      flash[:notice] = user.errors.full_messages
       flash[:color] = "invalid"
       redirect_to '/'
     end

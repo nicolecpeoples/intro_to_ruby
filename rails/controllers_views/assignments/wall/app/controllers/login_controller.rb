@@ -5,7 +5,6 @@ class LoginController < ApplicationController
 	end
 
 	def create
-
 		@user = User.find_by(username: params[:user][:username])
 		puts @user
 		if @user
@@ -14,7 +13,8 @@ class LoginController < ApplicationController
       		session[:id] = @user.id
     		redirect_to '/posts'
     	else
-    		flash.now[:danger] = 'Invalid email/password combination'
+    		#Changed Flash.now to just flash
+    		flash[:danger] = 'Invalid email/password combination'
     		redirect_to '/'
 		end
 	end

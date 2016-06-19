@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :secrets
+  has_many :likes, dependent: :destroy
+  has_many :secrets_liked, through: :likes, source: :secret
+
   has_secure_password
   before_save {self.email = email.downcase}
   before_save {self.name = name.capitalize}

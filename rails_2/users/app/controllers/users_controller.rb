@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   	@user = User.new
   end
 
+  def edit
+
+  end
+
   def create
   	@user = User.create(user_params)
   	if @user.save
@@ -22,19 +26,25 @@ class UsersController < ApplicationController
   end 
 
   def update
-  	@user = User.update(user_params)
-
-  	if @user.save?
-  		flash[:success] ="You have successfully registered"
-  		redirect_to 'show'
+  	
+  	if @user.update_attributes(user_params)
+  		flash[:success] ="Profile Updated"
+  		redirect_to @user
   	else
   		render @user
   	end
   end
 
   def show
-
+    @all_secrets = current_user.secrets
+    @secrets = Secret.new
   end
+
+  def destroy
+  	destroy_user
+    flash[:success] = "Your account has been successfully deleted"
+    redirect_to login_path
+  end 
 
   private
    def set_user

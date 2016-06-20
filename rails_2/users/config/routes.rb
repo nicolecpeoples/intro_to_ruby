@@ -1,26 +1,34 @@
+
 Rails.application.routes.draw do
  
+  get 'main/get_api'
+
+  get 'likes/index'
+
   root 'users#new'
 
   get 'update' => 'users#update'
-
-  get 'show' => 'users#show'
-
-  get 'new' => 'users#new'
 
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
 
-  get 'secrets' => 'secrets#show'
-
-  post 'secrets' => 'secrets#create'
-
   delete 'logout' => 'sessions#destroy'
 
   delete 'destroy' => 'users#destroy'
 
+  post 'secrets/:id' => 'secrets#destroy'
+
+  post 'likes/' => 'likes#create'
+
+
+  get 'secrets/' => 'secrets#show'
+
   resources :users
+  resources :secrets
+  resources :likes, only: [:create, :destroy]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

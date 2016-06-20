@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	include SessionsHelper
 	before_action :set_user, only: [:show, :edit, :update, :destroy, :correct_user]
+  before_action :require_login, except: [:new, :create]
+  before_action :require_correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
   	@users = User.all
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
 
   def show
     @all_secrets = current_user.secrets
+    @user_likes = current_user.likes.where(:user_id => current_user)
     @secrets = Secret.new
   end
 
